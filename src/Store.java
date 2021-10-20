@@ -1,8 +1,10 @@
 import java.beans.Customizer;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Store {
@@ -44,7 +46,7 @@ public class Store {
         }
     }
 
-    private void loadStartingCustomers(Scanner inputReader){
+    private void loadStartingCustomers(Scanner inputReader) throws IOException {
         Path fullPathName;
         String fileName;
         while(true){
@@ -57,6 +59,33 @@ public class Store {
             else
                 break;
         }
-        
+        var allLines = Files.readAllLines(fullPathName);
+        for (var line:allLines){
+            var splitLine = line.split(",");
+            var currentCustomer = new Customer(splitLine[0], Integer.parseInt(splitLine[1]));
+            Customers.add(currentCustomer);
+        }
+    }
+    private static void printMainMenu(){
+        System.out.println("======================");
+        System.out.println("What would you like to do?");
+        System.out.println("   [1] Add customer");
+        System.out.println("   [2] Select customer");
+        System.out.println("   [3] Exit the program");
+        System.out.println("======================");
+    }
+    public void addCustomer(Scanner inputReader){
+        inputReader.nextLine();
+        System.out.println("Enter the new customer's name:");
+        var newName = inputReader.nextLine();
+        var newCustomer = new Customer(newName);
+        Customers.add(newCustomer);
+        System.out.println("Finished adding new customer");
+    }
+    public Optional<Customer>selectCustomer(Scanner reader){
+        var enteredID = reader.nextInt();
+        for (var currentCustomer: Customers){
+            if(currentCustomer.getCustomerID())
+        }
     }
 }
