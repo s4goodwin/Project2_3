@@ -158,4 +158,9 @@ public class Store {
         else
             return customerAddresses.get(addressNum);
     }
+    public void makeOrder(ShippingAddress address, Customer cust){
+        var newOrder= new Order(address,cust);
+        Orders.add(newOrder);
+        System.out.println("New order created");
+    }
 }
