@@ -136,6 +136,26 @@ public class Store {
         var newAddress= new ShippingAddress(line1,line2,city,state,postCode);
     }
     private ShippingAddress pickAddress(Scanner secondScanner, Customer selectedCustomer){
-
+        var customerAddresses = selectedCustomer.getAddresses();
+        if (customerAddresses.size()==0){
+            System.out.println("No addresses on file, please add an address");
+            addAddress(secondScanner,selectedCustomer);
+            return selectedCustomer.getAddresses().get(0);
+        }
+        var count =0;
+        System.out.println("Please select a shipping address from on file");
+        for (var address : customerAddresses){
+            System.out.print("[" + count + "]"); //but you could do for(int count; count < customerAddresses.size(); count++ for the same effect
+            System.out.println(address.toString());
+            count++;
+        }
+        System.out.println("Enter the number of the address for order");
+        var addressNum = secondScanner.nextInt();
+        if (addressNum>= customerAddresses.size()){
+            System.out.println("Invalid entry, defaulting to first address on file");
+            return customerAddresses.get(0);
+        }
+        else
+            return customerAddresses.get(addressNum);
     }
 }
