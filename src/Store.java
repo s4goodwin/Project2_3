@@ -17,12 +17,12 @@ public class Store {
         Customers = new ArrayList<Customer>();
     }
 
-    public static void main(String [] args){
+    public static void main(String [] args) throws IOException {
         var comp152Inc = new Store();
         comp152Inc.runStore();
     }
 
-    public void runStore(){
+    public void runStore() throws IOException {
         var inputReader = new Scanner(System.in);
         loadStartingCustomers(inputReader);
         while(true){
@@ -85,7 +85,57 @@ public class Store {
     public Optional<Customer>selectCustomer(Scanner reader){
         var enteredID = reader.nextInt();
         for (var currentCustomer: Customers){
-            if(currentCustomer.getCustomerID())
+            if(currentCustomer.getCustomerID()==enteredID)
+                return Optional.of(currentCustomer);
         }
+        System.out.println("No customer with customer ID: "+enteredID);
+        return Optional.empty();
+    }
+    public void manageCustomer(Customer selectedCustomer){
+        Scanner secondScanner= new Scanner(System.in);
+        while (true){
+            printCustomerMenu(selectedCustomer.getName());
+            var userChoice = secondScanner.nextInt();
+            switch (userChoice){
+                case 1:
+                    addAddress(secondScanner);
+                    break;
+                case 2:
+                    ShippingAddress selectedAddress = pickAddress(secondScanner,selectedCustomer);
+                    makeOrder(selectedAddress,selectedCustomer);
+                case 3:
+                    return;
+
+                default:
+                    System.out.println("Invalid option selected");
+            }
+        }
+    }
+    private void printCustomerMenu(String custName){
+        System.out.println("======================");
+        System.out.println("What do you want to do for Customer " + custName+"?");
+        System.out.println("   [1] Add Address to customer");
+        System.out.println("   [2] Make an order for the customer");
+        System.out.println("   [3] return to the main menu");
+        System.out.println("======================");
+        System.out.print("Enter the number of your choice:");
+    }
+    private void addAddress(Scanner secondScanner, Customer selectedCustomer){
+        System.out.println("Adding new address for"+selectedCustomer.getName());
+        secondScanner.nextLine();
+        System.out.println("Enter address line 1:");
+        var line1=secondScanner.nextLine();
+        System.out.println("Enter address line 2 or <enter> if none:");
+        var line2= secondScanner.nextLine();
+        System.out.println("Enter City:");
+        var city=secondScanner.nextLine();
+        System.out.println("Enter State:");
+        var state= secondScanner.nextLine();
+        System.out.println("Enter postal code");
+        var postCode = secondScanner.nextLine();
+        var newAddress= new ShippingAddress(line1,line2,city,state,postCode);
+    }
+    private ShippingAddress pickAddress(Scanner secondScanner, Customer selectedCustomer){
+
     }
 }

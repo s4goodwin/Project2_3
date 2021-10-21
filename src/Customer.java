@@ -4,4 +4,10 @@ public class Customer {
 
     public Customer(String custName) {
     }
+
+    public int getCustomerID() {
+    }
+
+    public String getName() {
+    }
 }
