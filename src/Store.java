@@ -11,10 +11,14 @@ public class Store {
 
     private ArrayList<Order> Orders;
     private ArrayList<Customer> Customers;
+    private ArrayList<merchandiseItem> stock;
+    private double revenue;
 
     public Store(){
         Orders = new ArrayList<Order>();
         Customers = new ArrayList<Customer>();
+        stock=new ArrayList<merchandiseItem>();
+
     }
 
     public static void main(String [] args) throws IOException {
@@ -160,7 +164,7 @@ public class Store {
             return customerAddresses.get(addressNum);
     }
     public void makeOrder(ShippingAddress address, Customer cust){
-        var newOrder= new Order(address,cust);
+        var newOrder= new Order(address,cust,stock);
         Orders.add(newOrder);
         System.out.println("New order created");
     }

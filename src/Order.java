@@ -6,7 +6,7 @@ public class Order {
     private ArrayList<merchandiseItem> cartForOrder;
     
 
-    public Order(ShippingAddress dest, Customer cust,ArrayList<merchandiseItem> orderCart) {
+    public Order(ShippingAddress dest, Customer cust, ArrayList<merchandiseItem> orderCart) {
         destination=dest;
         orderedBy=cust;
         cartForOrder=orderCart;
