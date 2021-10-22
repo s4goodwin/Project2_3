@@ -6,4 +6,10 @@ public class Order {
         destination=dest;
         orderedBy=cust;
     }
+    public String getDestination(){
+        return destination.toString();
+    }
+    public String getOrderer(){
+        return orderedBy.toString();
+    }
 }

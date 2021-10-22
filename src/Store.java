@@ -52,7 +52,7 @@ public class Store {
         while(true){
             System.out.println("Enter the name of file to load customers:");
             fileName= inputReader.nextLine();
-            fullPathName= Paths.get(fileName);
+            fullPathName= Paths.get("Customers.txt");
             if (!Files.exists(fullPathName)){
                 System.out.println("No file exists, please try another");
             }
@@ -134,6 +134,7 @@ public class Store {
         System.out.println("Enter postal code");
         var postCode = secondScanner.nextLine();
         var newAddress= new ShippingAddress(line1,line2,city,state,postCode);
+        selectedCustomer.addAddress(newAddress);
     }
     private ShippingAddress pickAddress(Scanner secondScanner, Customer selectedCustomer){
         var customerAddresses = selectedCustomer.getAddresses();
