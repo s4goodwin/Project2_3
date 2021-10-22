@@ -9,7 +9,12 @@ public class ShippingAddress {
         AddressLine1 = line1;
         AddressLine2 = line2;
         City=city;
-        State=state;
+        this.State=state;
         PostalCode=postCode;
+    }
+    public String toString(){
+        if (AddressLine2.length()>0)
+            return AddressLine1+'\n'+AddressLine2+"\n"+City+", "+State+" "+PostalCode;
+        return AddressLine1+'\n'+City+", "+State+" "+PostalCode;
     }
 }

@@ -98,7 +98,7 @@ public class Store {
             var userChoice = secondScanner.nextInt();
             switch (userChoice){
                 case 1:
-                    addAddress(secondScanner);
+                    addAddress(secondScanner, selectedCustomer);
                     break;
                 case 2:
                     ShippingAddress selectedAddress = pickAddress(secondScanner,selectedCustomer);
