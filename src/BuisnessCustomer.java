@@ -1,7 +1,5 @@
-import jdk.jfr.Name;
-
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 
 public class BuisnessCustomer extends Customer {
 
@@ -18,7 +16,7 @@ public class BuisnessCustomer extends Customer {
         if (purchaseOrderBalance > discountBalance)
             return purchaseOrderBalance*.95;
         purchaseOrderBalance=outstandingBalance;
-
+        return purchaseOrderBalance;
     }
 
 
