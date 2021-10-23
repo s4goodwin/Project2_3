@@ -66,7 +66,12 @@ public class Store {
         var allLines = Files.readAllLines(fullPathName);
         for (var line:allLines){
             var splitLine = line.split(",");
-            var currentCustomer = new Customer(splitLine[0], Integer.parseInt(splitLine[1]));
+            var currentCustomer = new Customer(splitLine[0], Integer.parseInt(splitLine[1])) {
+                @Override
+                public double payForOrder() {
+                    return 0;
+                }
+            };
             Customers.add(currentCustomer);
         }
     }
@@ -82,7 +87,12 @@ public class Store {
         inputReader.nextLine();
         System.out.println("Enter the new customer's name:");
         var newName = inputReader.nextLine();
-        var newCustomer = new Customer(newName);
+        var newCustomer = new Customer(newName) {
+            @Override
+            public double payForOrder() {
+                return 0;
+            }
+        };
         Customers.add(newCustomer);
         System.out.println("Finished adding new customer");
     }

@@ -1,4 +1,7 @@
-import javax.lang.model.element.Name;
+import jdk.jfr.Name;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BuisnessCustomer extends Customer {
 
@@ -8,5 +11,12 @@ public class BuisnessCustomer extends Customer {
         super(Name, ID);
         this.purchaseOrderBalance=purchaseOrderBalance;
     }
+
+    @Override
+    public double payForOrder() {
+        var sum=0;
+        for(var num :)
+        return 0;
+    }
 }
-}
+

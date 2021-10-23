@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Customer {
+public abstract class Customer {
     private ArrayList<ShippingAddress> Addresses;
     private String Name;
     private int customerID;
@@ -44,7 +44,7 @@ public class Customer {
     public void arrangeDelivery(){
         System.out.println(Name+" deliver anytime");
     }
-    public double payOutstandingBalance(){
+    public abstract double payForOrder();
 
-    }
+    public abstract double payForOrder(ArrayList<merchandiseItem> List);
 }
