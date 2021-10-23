@@ -9,7 +9,9 @@ public class TaxExemptCustomer extends Customer{
         super(custName);
     }
 
-
+    @Override
+    public void arrangeDelivery() {
+        System.out.println("Please contact "+getName()+" on the day of delivery");
     }
 
     @Override
