@@ -41,4 +41,10 @@ public class Customer {
     public String toString(){
         return "Customer Name: "+Name+"\nCustomerID: "+customerID+"\nWith "+Addresses.size()+" addresses on file";
     }
+    public void arrangeDelivery(){
+        System.out.println(Name+" deliver anytime");
+    }
+    public double payOutstandingBalance(){
+
+    }
 }
