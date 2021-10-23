@@ -68,7 +68,7 @@ public class Store {
             var splitLine = line.split(",");
             var currentCustomer = new Customer(splitLine[0], Integer.parseInt(splitLine[1])) {
                 @Override
-                public double payForOrder() {
+                public double payForOrder(ArrayList<merchandiseItem> List) {
                     return 0;
                 }
             };
@@ -89,9 +89,10 @@ public class Store {
         var newName = inputReader.nextLine();
         var newCustomer = new Customer(newName) {
             @Override
-            public double payForOrder() {
+            public double payForOrder(ArrayList<merchandiseItem> List) {
                 return 0;
             }
+
         };
         Customers.add(newCustomer);
         System.out.println("Finished adding new customer");

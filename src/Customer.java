@@ -44,7 +44,6 @@ public abstract class Customer {
     public void arrangeDelivery(){
         System.out.println(Name+" deliver anytime");
     }
-    public abstract double payForOrder();
 
     public abstract double payForOrder(ArrayList<merchandiseItem> List);
 }

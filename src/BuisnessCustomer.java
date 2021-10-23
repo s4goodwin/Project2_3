@@ -12,11 +12,13 @@ public class BuisnessCustomer extends Customer {
         this.purchaseOrderBalance=purchaseOrderBalance;
     }
 
+    public double payOutstandingBalance
+
+
     @Override
-    public double payForOrder() {
-        var sum=0;
-        for(var num :)
+    public double payForOrder(ArrayList<merchandiseItem> List) {
         return 0;
     }
 }
+
 
