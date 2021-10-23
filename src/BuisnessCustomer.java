@@ -12,7 +12,14 @@ public class BuisnessCustomer extends Customer {
         this.purchaseOrderBalance=purchaseOrderBalance;
     }
 
-    public double payOutstandingBalance
+    public double payOutstandingBalance(){
+        var discountBalance =1000;
+        var outstandingBalance=0;
+        if (purchaseOrderBalance > discountBalance)
+            return purchaseOrderBalance*.95;
+        purchaseOrderBalance=outstandingBalance;
+
+    }
 
 
     @Override
