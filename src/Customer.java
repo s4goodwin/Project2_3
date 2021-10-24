@@ -36,6 +36,9 @@ public abstract class Customer {
     public void addAddress(ShippingAddress newAddress) {
         Addresses.add(newAddress);
     }
+    public double payOutstandingBalance(){
+        return 0;
+    }
 
     @Override
     public String toString(){
