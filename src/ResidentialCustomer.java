@@ -12,7 +12,10 @@ public class ResidentialCustomer extends Customer{
 
 
     @Override
-    public double payForOrder(ArrayList<merchandiseItem> List) {
-        return 0;
+    public double payForOrder(ArrayList<merchandiseItem> itemsInOrder) {
+        double sum = 0;
+        for(merchandiseItem item : itemsInOrder)
+            sum += item;
+        return sum*1.0625;
     }
 }

@@ -27,6 +27,10 @@ public class Store {
     }
 
     public void runStore() throws IOException {
+        var filename = "students.txt";
+        var studentFile = Paths.get(filename);
+        var allStudents = Files.readString(studentFile);
+        String [] separatedNames = allStudents.split("\n");
         var inputReader = new Scanner(System.in);
         loadStartingCustomers(inputReader);
         while(true){
@@ -92,7 +96,6 @@ public class Store {
             public double payForOrder(ArrayList<merchandiseItem> List) {
                 return 0;
             }
-
         };
         Customers.add(newCustomer);
         System.out.println("Finished adding new customer");

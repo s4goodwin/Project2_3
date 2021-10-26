@@ -1,5 +1,6 @@
 import javax.lang.model.element.Name;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.jar.Attributes;
 
@@ -26,8 +27,13 @@ public class BuisnessCustomer extends Customer {
 
 
     @Override
-    public double payForOrder(ArrayList<merchandiseItem> List) {
-        return 0;
+    public double payForOrder(ArrayList<merchandiseItem> itemsInOrder) {
+        System.out.println("This order is for "+getName()+" and will be payed with a purchase order");
+        double sum = 0;
+        for(merchandiseItem item : itemsInOrder)
+            sum += item;
+            purchaseOrderBalance=sum*1.0625;
+            return 0;
     }
 }
 
