@@ -1,0 +1,1 @@
+paper,pencils,carrots,apples,oranges

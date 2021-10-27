@@ -1,11 +1,8 @@
-import java.beans.Customizer;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Optional;
-import java.util.Scanner;
+import java.util.*;
 
 public class Store {
 
@@ -27,10 +24,14 @@ public class Store {
     }
 
     public void runStore() throws IOException {
-        var filename = "students.txt";
-        var studentFile = Paths.get(filename);
-        var allStudents = Files.readString(studentFile);
-        String [] separatedNames = allStudents.split("\n");
+        var filename = "merchandiceItem.txt";
+        var stockFile = Paths.get(filename);
+        List merchandiceStock = Collections.singletonList(Files.readString(stockFile));
+        List [] separatedItems = merchandiceStock.split(",");
+        for(var merchandiceItemStock: separatedItems){
+            merchandiceItemStock=stock;
+
+        }
         var inputReader = new Scanner(System.in);
         loadStartingCustomers(inputReader);
         while(true){
@@ -164,7 +165,7 @@ public class Store {
         var count =0;
         System.out.println("Please select a shipping address from on file");
         for (var address : customerAddresses){
-            System.out.print("[" + count + "]"); //but you could do for(int count; count < customerAddresses.size(); count++ for the same effect
+            System.out.print("[" + count + "]");
             System.out.println(address.toString());
             count++;
         }
