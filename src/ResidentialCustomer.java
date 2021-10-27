@@ -17,5 +17,7 @@ public class ResidentialCustomer extends Customer{
         for(merchandiseItem item : itemsInOrder)
             sum += item;
         return sum*1.0625;
+
+
     }
 }
