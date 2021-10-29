@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public abstract class Customer {
+public abstract class Customer {  //i made abstract cuz businesscustomer, residential customer and tax excepmt customer all extend it
     private ArrayList<ShippingAddress> Addresses;
     private String Name;
     private int customerID;
@@ -36,7 +36,7 @@ public abstract class Customer {
     public void addAddress(ShippingAddress newAddress) {
         Addresses.add(newAddress);
     }
-    public double payOutstandingBalance(){
+    public double payOutstandingBalance(){ //this was supposed to return zero
         return 0;
     }
 
@@ -45,8 +45,8 @@ public abstract class Customer {
         return "Customer Name: "+Name+"\nCustomerID: "+customerID+"\nWith "+Addresses.size()+" addresses on file";
     }
     public void arrangeDelivery(){
-        System.out.println(Name+" deliver anytime");
+        System.out.println(Name+" deliver anytime"); //prints out the name, as well as some words
     }
 
-    public abstract double payForOrder(ArrayList<merchandiseItem> List);
-}
+    public abstract double payForOrder(ArrayList<merchandiseItem> List);//this is here because the customer class needs to know that this method exists,
+}                                                                       //but it is implemented in the extended classes

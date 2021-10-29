@@ -26,9 +26,9 @@ public class Store {
     public void runStore() throws IOException {
         var filename = "merchandiceItem.txt";
         var stockFile = Paths.get(filename);
-        List merchandiceStock = Collections.singletonList(Files.readString(stockFile));
-        List [] separatedItems = merchandiceStock.split(",");
-        for(var merchandiceItemStock: separatedItems){
+        List merchandiceStock = Collections.singletonList(Files.readString(stockFile)); // this block finds the file, and turns it into a list
+        List [] separatedItems = merchandiceStock.split(",");                           // it also splits the txt file by every comma
+        for(var merchandiceItemStock: separatedItems){                                  // for every item in separatedItems, it adds it to stock
             merchandiceItemStock=stock;
 
         }
@@ -179,8 +179,8 @@ public class Store {
             return customerAddresses.get(addressNum);
     }
     public void makeOrder(ShippingAddress address, Customer cust){
-        var newOrder= new Order(address,cust,stock);
-        Orders.add(newOrder);
+        var newOrder= new Order(address,cust,stock);                //creates new variable newOrder, which is a new Order object
+        Orders.add(newOrder);                                       //adds newOrder to the other Order objects
         System.out.println("New order created");
     }
 }

@@ -8,6 +8,7 @@ public class merchandiseItem {
         this.price=price;
         taxibleItem=type;
     }
+    //below are the three get methods, they just return each of the values
     public String getName(){
         return Name;
     }
